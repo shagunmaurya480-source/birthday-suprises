@@ -1,0 +1,465 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>A Little Box of Happiness 🎀</title>
+
+<style>
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+body{
+    font-family:'Trebuchet MS',sans-serif;
+    background:linear-gradient(135deg,#ffe1ee,#fff0f5,#fce4ec);
+    color:#8d4561;
+    text-align:center;
+    overflow-x:hidden;
+}
+
+section{
+    min-height:100vh;
+    padding:35px 18px;
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+    align-items:center;
+}
+
+h1{
+    font-size:30px;
+    color:#d94f85;
+    margin:15px;
+}
+
+h2{
+    color:#db6090;
+    margin:15px;
+}
+
+p{
+    line-height:1.9;
+    font-size:16px;
+}
+
+button{
+    border:none;
+    padding:14px 25px;
+    border-radius:30px;
+    background:#ed83ad;
+    color:white;
+    font-size:16px;
+    margin:15px;
+    box-shadow:0 5px 15px #e8a5bf;
+    cursor:pointer;
+}
+
+button:active{
+    transform:scale(.95);
+}
+
+.card{
+    background:#ffffffd9;
+    border:2px solid #ffd0e2;
+    border-radius:25px;
+    padding:25px;
+    max-width:420px;
+    width:100%;
+    box-shadow:0 8px 25px #eab4ca;
+}
+
+.emoji{
+    font-size:65px;
+    margin:20px;
+}
+
+.gift{
+    font-size:110px;
+    cursor:pointer;
+    animation:bounce 1.5s infinite;
+}
+
+@keyframes bounce{
+    0%,100%{transform:translateY(0)}
+    50%{transform:translateY(-15px)}
+}
+
+.hidden{
+    display:none;
+}
+
+.floating{
+    position:fixed;
+    bottom:-30px;
+    animation:float 6s linear infinite;
+    pointer-events:none;
+}
+
+@keyframes float{
+    to{
+        transform:translateY(-110vh) rotate(360deg);
+        opacity:0;
+    }
+}
+
+.anime{
+    font-size:100px;
+    animation:bounce 2s infinite;
+}
+
+.letter{
+    text-align:left;
+    padding:23px;
+    line-height:2;
+    font-size:15px;
+    background:#fff9fc;
+    border-radius:20px;
+    border:2px dashed #f3a5c2;
+    max-width:450px;
+}
+
+.month{
+    background:#fff;
+    border-radius:15px;
+    margin:10px;
+    padding:13px;
+    width:100%;
+    max-width:350px;
+}
+
+.cake{
+    font-size:100px;
+}
+
+#final{
+    background:linear-gradient(135deg,#ffd6e7,#fce4ec,#fff0f5);
+}
+
+</style>
+</head>
+
+<body>
+
+<!-- SCREEN 1 -->
+
+<section id="screen1">
+
+<div class="emoji">🎀🧸🌷</div>
+
+<h1>A Little Surprise!</h1>
+
+<div class="card">
+
+<p>
+Heyyy Shivam! 💗
+<br><br>
+Aaj tumhare liye kuch bahut special hai.
+Ek chhota sa surprise, jismein bahut saari
+khushiyan aur wishes chhupi hain.
+</p>
+
+<h2>Are You Ready? 🥹</h2>
+
+<button onclick="next(2)">
+YES! OPEN MY SURPRISE 🎁
+</button>
+
+</div>
+
+</section>
+
+
+<!-- SCREEN 2 -->
+
+<section id="screen2" class="hidden">
+
+<h1>Your Magical Gift Box 🎁</h1>
+
+<p>Ek special gift tumhara intezaar kar raha hai!</p>
+
+<div class="gift" onclick="openGift()">
+🎁
+</div>
+
+<p>Tap on the gift box to open it! 💗</p>
+
+<div id="giftMessage" class="hidden card">
+
+<div class="anime">🧑🏻‍🎤</div>
+
+<h2>Happy Birthday Shivam! 🎂</h2>
+
+<p>
+Surpriseee! 🥳
+<br>
+Aaj ka din sirf tumhari khushiyon ke naam!
+</p>
+
+<button onclick="next(3)">
+NEXT SURPRISE 💝
+</button>
+
+</div>
+
+</section>
+
+
+<!-- SCREEN 3 -->
+
+<section id="screen3" class="hidden">
+
+<div class="emoji">🎂</div>
+
+<h1>Make A Birthday Wish!</h1>
+
+<div class="cake">🎂</div>
+
+<p>
+Aaj apne liye ek beautiful wish maangna.
+May all your dreams come true! ✨
+</p>
+
+<button onclick="blow()">
+BLOW THE CANDLES 🕯️
+</button>
+
+<h2 id="cakeMessage"></h2>
+
+<button onclick="next(4)">
+CONTINUE 🌸
+</button>
+
+</section>
+
+
+<!-- SCREEN 4 -->
+
+<section id="screen4" class="hidden">
+
+<h1>12 Months, 12 Wishes 🌷</h1>
+
+<div class="month">🌸 January – Happiness</div>
+<div class="month">💗 February – Love and Kindness</div>
+<div class="month">✨ March – Success</div>
+<div class="month">🦋 April – New Opportunities</div>
+<div class="month">🌻 May – Beautiful Memories</div>
+<div class="month">🌈 June – Peace</div>
+<div class="month">💫 July – Confidence</div>
+<div class="month">🎀 August – Growth</div>
+<div class="month">🌷 September – Achievements</div>
+<div class="month">🌙 October – Adventures</div>
+<div class="month">🧸 November – Blessings</div>
+<div class="month">💝 December – Endless Smiles</div>
+
+<button onclick="next(5)">
+OPEN YOUR SPECIAL LETTER 💌
+</button>
+
+</section>
+
+
+<!-- SCREEN 5 -->
+
+<section id="screen5" class="hidden">
+
+<h1>A Letter From My Heart 💌</h1>
+
+<div class="letter">
+
+<h2>Dear Shivam, ❤️</h2>
+
+Happy Birthday to you! 🎂
+
+Aaj ka din bahut special hai, kyunki aaj
+ek aise insaan ka birthday hai jiske liye
+meri taraf se dher saari khushiyan,
+pyaari si wishes aur endless blessings hain.
+
+Sabse pehle toh tumhe birthday ki
+bahut bahut saari shubhkamnayein! 🌷
+
+Meri dil se yahi wish hai ki tumhari
+zindagi ka aane wala har din pichhle
+din se zyada khoobsurat ho.
+
+Tumhare chehre ki smile kabhi kam na ho,
+tumhare dil mein hamesha sukoon rahe
+aur tumhari life mein khushiyon ki
+kabhi kami na aaye. 💗
+
+May your future be as beautiful
+as your dreams!
+
+Tum jo bhi banna chahte ho,
+jo bhi achieve karna chahte ho,
+Bhagwan tumhe usse bhi zyada success de.
+
+Tumhari har mehnat rang laaye,
+tumhare har sapne ko ek khoobsurat
+manzil mile aur tum apni life mein
+bahut aage badho. ✨
+
+Kabhi kisi mushkil se haar mat maanna.
+Khud par bharosa rakhna,
+kyunki tumhare andar bahut kuch
+karne ki capability hai.
+
+Hamesha bade sapne dekhna,
+unhe poora karne ki himmat rakhna
+aur apni journey ko enjoy karna.
+
+Life bahut beautiful hai.
+Ismein naye experiences lena,
+achhi memories banana,
+bina wajah hasna aur har chhote
+moment ko enjoy karna.
+
+Meri wish hai ki tumhe woh sab mile
+jiske liye tumne kabhi chupchaap dua ki ho.
+
+Bhagwan tumhe hamesha khush rakhe,
+buri nazar se bachaye aur tumhari
+zindagi ko pyaar, respect, peace
+aur prosperity se bhar de. 🧿
+
+Aane wale saal mein tumhe naye
+opportunities milein, naye achievements
+milien aur tumhe apni mehnat par
+hamesha garv ho.
+
+Aur haan, apni smile kabhi mat khona!
+
+Once again, a very very
+HAPPY BIRTHDAY! 🥳
+
+Keep smiling, keep shining
+and keep growing!
+
+With lots of best wishes,
+HAVE A BEAUTIFUL YEAR AHEAD! 💗
+
+</div>
+
+<button onclick="next(6)">
+ONE LAST SURPRISE 🎁
+</button>
+
+</section>
+
+
+<!-- SCREEN 6 -->
+
+<section id="screen6" class="hidden" >
+
+<div class="emoji">🌸🧸💗</div>
+
+<h1>One Last Thing...</h1>
+
+<div class="card">
+
+<h2>Dear Birthday Star! ⭐</h2>
+
+<p>
+May your life be filled with
+beautiful surprises, genuine happiness,
+unlimited success and countless smiles.
+<br><br>
+
+Tumhari har subah ek nayi umeed laaye
+aur har raat sukoon lekar aaye.
+<br><br>
+
+Never stop dreaming.
+Never stop believing.
+Never stop growing.
+<br><br>
+
+YOU DESERVE ALL THE HAPPINESS! 💝
+</p>
+
+<h1>HAPPY BIRTHDAY! 🎂</h1>
+
+<div class="emoji">🎉🎀🦋</div>
+
+<p>Made with lots of good wishes! ❤️</p>
+
+</div>
+
+<button onclick="celebrate()">
+CELEBRATE! 🎉
+</button>
+
+</section>
+
+
+<script>
+
+function next(number){
+
+for(let i=1;i<=6;i++){
+document.getElementById("screen"+i)
+.classList.add("hidden");
+}
+
+document.getElementById("screen"+number)
+.classList.remove("hidden");
+
+window.scrollTo(0,0);
+
+}
+
+function openGift(){
+
+document.querySelector(".gift").style.display="none";
+
+document.getElementById("giftMessage")
+.classList.remove("hidden");
+
+celebrate();
+
+}
+
+function blow(){
+
+document.getElementById("cakeMessage")
+.innerHTML="🎉 YAYYYY! Your birthday wish is on its way! 💗";
+
+celebrate();
+
+}
+
+function celebrate(){
+
+for(let i=0;i<45;i++){
+
+let heart=document.createElement("div");
+
+heart.className="floating";
+
+heart.innerHTML=["💗","🎀","✨","🌸","💝","🦋"]
+[Math.floor(Math.random()*6)];
+
+heart.style.left=Math.random()*100+"vw";
+
+heart.style.fontSize=(15+Math.random()*25)+"px";
+
+heart.style.animationDuration=(3+Math.random()*4)+"s";
+
+document.body.appendChild(heart);
+
+setTimeout(()=>{
+heart.remove();
+},7000);
+
+}
+
+}
+
+</script>
+
+</body>
+</html>
